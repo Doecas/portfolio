@@ -1,0 +1,300 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    
+    background-color: #3f76aa;
+    color: black;
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+/* Header */
+.main-head {
+    background: white;
+    color: black;
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    border: #ac5050 solid 10px;
+    border-radius: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+#logo {
+    cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+    background: url('image.jpg') no-repeat center center/cover;
+    
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    text-shadow: 2px 2px 5px rgb(22, 76, 204);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    text-shadow: 1px 1px 5px rgb(2, 37, 238);
+}
+
+/* Section styles */
+section {
+    padding: 5rem 2rem;
+}
+
+section h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: black;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    width: 5rem;
+    height: 3px;
+    background: #f39c12;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+.a-propos {
+    font-weight: 100;
+    color: black;
+
+}
+
+.a-propos{
+    font-size: 20px;
+}
+
+.a-propos img{
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+
+}
+
+/* Services */
+.service {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.service img {
+    width: auto;
+    height: auto;
+    border-radius: 10rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.service img:hover {
+    transform: scale(1.05);
+}
+
+/* Gallery */
+.galerie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.galerie-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.galerie-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Contact form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+form label {
+    font-size: 1.8rem;
+    color: #555;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+
+form button {
+    background: #333;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #f39c12;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: linear-gradient(to right, #00093c,#2d0b00);
+
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0 30px;
+    border-top-left-radius: 125px;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 3rem;
+}
+
+footer {
+    background-color: #742525;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.4rem;
+}
+
+footer a {
+    color: #00aaff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+/* Mobile first : ajuste les styles pour les petits écrans */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px; /* Réduit la taille du texte */
+    }
+
+    nav ul {
+        flex-direction: column; /* Aligne les liens verticalement */
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 1.5rem; /* Réduit la taille des liens */
+    }
+
+    .hero h1 {
+        font-size: 3rem; /* Réduit la taille du titre */
+    }
+
+    .hero h2 {
+        font-size: 2rem; /* Réduit la taille du sous-titre */
+    }
+
+    section h2 {
+        font-size: 2.5rem; /* Réduit les titres de section */
+    }
+
+    .galerie-container {
+        grid-template-columns: 1fr; /* Affiche une seule colonne pour la galerie */
+    }
+
+    form {
+        padding: 1rem; /* Réduit l'espace autour du formulaire */
+    }
+
+    footer {
+        padding: 20px 10px; /* Réduit l'espace dans le footer */
+    }
+}
+
+/* Tablettes : ajuste les styles pour des écrans moyens */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: 18px; /* Taille intermédiaire du texte */
+    }
+
+    nav ul li a {
+        font-size: 1.6rem; /* Taille moyenne des liens */
+    }
+
+    .hero h1 {
+        font-size: 3.5rem; /* Taille intermédiaire du titre */
+    }
+
+    .hero h2 {
+        font-size: 2.2rem; /* Taille intermédiaire du sous-titre */
+    }
+
+    section h2 {
+        font-size: 2.8rem; /* Taille intermédiaire des titres de section */
+    }
+
+    .galerie-container {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour la galerie */
+    }
+}
