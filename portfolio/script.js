@@ -1,41 +1,82 @@
+/*======menu icon navbar======*/
 
-// Scroll effect for navigation links
-const navLinks = document.querySelectorAll("nav ul li a");
 
-navLinks.forEach(link => {
-    link.addEventListener("click", e => {
-        e.preventDefault();
-        const targetId = e.target.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
 
-        if (targetSection) {
-            window.scrollTo({
-                top: targetSection.offsetTop - 80, // Adjust for header height
-                behavior: "smooth",
-            });
-        }
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+
+
+/*======scroll section active link======*/
+let sections = document.querySelectorAll('section');  
+let navLinks = document.querySelectorAll('header nav a');  
+
+window.onscroll = () => {  
+    sections.forEach(sec => {  
+        let top = window.scrollY;  
+        let offset = sec.offsetTop - 150;  
+        let height = sec.offsetHeight;  
+        let id = sec.getAttribute('id');  
+
+        if (top > offset && top <offset + height) {  
+            navLinks.forEach(links => {  
+                links.classList.remove('active');  
+            });  
+            document.querySelector('header nav a[href*=' + id + ']').classList.add('active');  
+        };  
+    });  
+  
+
+let header = document.querySelector('.header');
+
+header.classList.toggle('sticky',window.scrollY > 100);
+
+menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+
+};
+
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('zoom');
     });
 });
 
-// Form button click effect
-const submitButton = document.querySelector("form button");
 
-submitButton.addEventListener("click", () => {
-    alert("Merci pour votre message ! Nous reviendrons vers vous sous peu.");
-});
+function toggleText(id, btn) {
+    let text = document.getElementById(id);
+    if (text.style.display === "none" || text.style.display === "") {
+        text.style.display = "block";
+        btn.innerText = "Moins";
+    } else {
+        text.style.display = "none";
+        btn.innerText = "Plus";
+    }
+}
 
-// Hover effect for gallery images
-const galleryImages = document.querySelectorAll(".galerie-container img");
 
-galleryImages.forEach(image => {
-    image.addEventListener("mouseover", () => {
-        image.style.transform = "scale(1.1) rotate(2deg)";
-        image.style.transition = "transform 0.5s ease, box-shadow 0.3s ease";
-        image.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.4)";
+/*===========dark ligth mode===========*/
+let darkModeIcon = document.querySelector('#darkMode-icon');
+
+darkModeIcon.onclick = () => {
+    darkModeIcon.classList.toggle('bx-sun');
+    document.body.classList.toggle('dark-mode');
+};
+
+/*===========scroll reveal===========*/
+ScrollReveal({
+     reset: true,
+     distance: '80px',
+     duration: 2000,
+     delay: 200
     });
 
-    image.addEventListener("mouseout", () => {
-        image.style.transform = "scale(1) rotate(0deg)";
-        image.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)";
-    });
-});
+    ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+    ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
+    ScrollReveal().reveal('.home-content h1, ', { origin: 'left' });
+    ScrollReveal().reveal('.home-content h3, .home-content p .apropos.content', { origin: 'right' });
+
